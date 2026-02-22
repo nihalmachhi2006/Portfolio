@@ -6,13 +6,15 @@ export interface Project {
   title: string
   description: string
   section: 'ux' | 'ar'
-  images: string[]
+  image: string
   tags: string[]
   year: string
   url?: string
+  logoUrl?: string
 }
 
 export const projects: Project[] = [
+  // ── UX ──────────────────────────────────────────────────────────────────
   {
     id: '1',
     slug: 'lica',
@@ -21,12 +23,10 @@ export const projects: Project[] = [
     title: "Lica's Product & Motion",
     description: 'Wearing multiple hats to design an AI creative platform for static and video ads.',
     section: 'ux',
-    images: [
-      'https://framerusercontent.com/images/ZnyMzUD9njvUPHwpSFxkSrs0ec.png',
-      'https://framerusercontent.com/images/rWSLPHQupCHdazP1fF9HszxwOg.png',
-    ],
+    image: '/projectcard.png',           // ← put your image filename here
     tags: ['Product Design', 'Motion', 'AI'],
     year: '2024',
+    logoUrl: 'https://framerusercontent.com/images/ZnyMzUD9njvUPHwpSFxkSrs0ec.png',
   },
   {
     id: '2',
@@ -36,12 +36,10 @@ export const projects: Project[] = [
     title: 'Video Apps',
     description: 'Designed concepts and shipped features for Final Cut Pro on iPadOS, macOS, and visionOS.',
     section: 'ux',
-    images: [
-      'https://framerusercontent.com/images/JT8xm50txOdlgI5dsCepnwCBQo.png',
-      'https://framerusercontent.com/images/8XJinru2z2764NmWgBgmFqXcU.png',
-    ],
+    image: '/projectcard.png',          // ← put your image filename here
     tags: ['Product Design', 'iOS', 'visionOS'],
     year: '2024',
+    logoUrl: '__apple__',
   },
   {
     id: '3',
@@ -51,12 +49,10 @@ export const projects: Project[] = [
     title: 'Visavis App Development',
     description: 'A walkthrough of my mobile app designs at Visavis for iOS and Android.',
     section: 'ux',
-    images: [
-      'https://framerusercontent.com/images/G7ltBpOmltBpn8AZagtXT1ZCPzY.png',
-      'https://framerusercontent.com/images/i3Dm8sAq8sXyPophzS6cG9Dq1mA.png',
-    ],
+    image: '/projectcard.png',        // ← put your image filename here
     tags: ['Mobile', 'iOS', 'Android'],
     year: '2023',
+    logoUrl: '__visavis__',
   },
   {
     id: '4',
@@ -66,11 +62,10 @@ export const projects: Project[] = [
     title: 'SoundCloud Case Study',
     description: 'A walkthrough of my design challenge submission for the Kleiner Perkins Fellowship.',
     section: 'ux',
-    images: [
-      'https://framerusercontent.com/images/ap9D96aU5naPrRcfXYDrVW0MjY.png',
-    ],
+    image: '/projectcard.png',     // ← put your image filename here
     tags: ['Case Study', 'UX Research', 'Product'],
     year: '2023',
+    logoUrl: '__soundcloud__',
   },
   {
     id: '5',
@@ -78,15 +73,14 @@ export const projects: Project[] = [
     num: '05',
     role: 'Product Designer',
     title: 'Forbes Case Study',
-    description: 'A walkthrough of my mobile app redesign for Forbes Magazine\'s app.',
+    description: "A walkthrough of my mobile app redesign for Forbes Magazine's app.",
     section: 'ux',
-    images: [
-      'https://framerusercontent.com/images/7sQNov2YklB5DjDLaDhHS6jm4.png',
-      'https://framerusercontent.com/images/xJLXJYVtIB9FDyJ31xIke636SyU.png',
-    ],
+    image: '/projectcard.png',         // ← put your image filename here
     tags: ['Case Study', 'Mobile', 'Redesign'],
     year: '2023',
+    logoUrl: '__forbes__',
   },
+  // ── AR ──────────────────────────────────────────────────────────────────
   {
     id: '6',
     slug: 'covision',
@@ -95,11 +89,10 @@ export const projects: Project[] = [
     title: 'CoVision',
     description: 'An Apple Vision Pro concept for the future of design brainstorming.',
     section: 'ar',
-    images: [
-      'https://framerusercontent.com/images/QMv58rD5jRHqHwXOR3dYUYKT5aE.png',
-    ],
+    image: '/projectcard.png',       // ← put your image filename here
     tags: ['visionOS', 'AR', 'Concept'],
     year: '2024',
+    logoUrl: '__apple__',
   },
   {
     id: '7',
@@ -109,12 +102,10 @@ export const projects: Project[] = [
     title: 'Snap inc. Externship',
     description: 'A walkthrough of my development for the 2024 Lens Challenge.',
     section: 'ar',
-    images: [
-      'https://framerusercontent.com/images/1eqW2qgkdTYAxXlB0ebJwJZWV8c.png',
-      'https://framerusercontent.com/images/H2XlNF0DktWOjUHc0fDMv2vCkyI.png',
-    ],
+    image: '/projectcard.png',           // ← put your image filename here
     tags: ['Snap', 'Lens Studio', 'AR'],
     year: '2024',
+    logoUrl: '__snap__',
   },
   {
     id: '8',
@@ -124,12 +115,10 @@ export const projects: Project[] = [
     title: 'SpatialSense',
     description: 'An AR Hologram to help visually impaired users understand artworks.',
     section: 'ar',
-    images: [
-      'https://framerusercontent.com/images/oX96vhnpmIqqxXaQGtsvlgGaQ.png',
-      'https://framerusercontent.com/images/TV0rPzDf5sylH8T3ybw4ZbW6p4.png',
-    ],
+    image: '/projectcard.png',   // ← put your image filename here
     tags: ['AR', 'Accessibility', 'Hologram'],
     year: '2023',
+    logoUrl: '__spatial__',
   },
   {
     id: '9',
@@ -139,12 +128,10 @@ export const projects: Project[] = [
     title: 'INST639P',
     description: 'My projects during my AR Mobile Design graduate level class.',
     section: 'ar',
-    images: [
-      'https://framerusercontent.com/images/1eqW2qgkdTYAxXlB0ebJwJZWV8c.png',
-      'https://framerusercontent.com/images/nu1jusU10CeBD0RSsZwX10Uq4g.png',
-    ],
+    image: '/projectcard.png',       // ← put your image filename here
     tags: ['AR', 'Mobile', 'Graduate'],
     year: '2023',
+    logoUrl: '__clock__',
   },
 ]
 

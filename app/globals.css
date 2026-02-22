@@ -17,7 +17,7 @@ body {
   cursor: none;
 }
 
-/* Custom cursor */
+/* ── Custom cursor ──────────────────────────── */
 .cursor-dot {
   width: 8px; height: 8px;
   background: #fff;
@@ -26,7 +26,6 @@ body {
   pointer-events: none;
   z-index: 99999;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
   mix-blend-mode: difference;
 }
 .cursor-ring {
@@ -43,39 +42,24 @@ body {
 
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: #0d0d0d; }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #2e2e2e; border-radius: 2px; }
 
-/* Section labels */
+/* ── Section label ──────────────────────────── */
 .section-label {
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.15em;
-  color: #555;
+  letter-spacing: 0.18em;
+  color: #505050;
   text-transform: uppercase;
 }
 
-/* Project card */
-.project-card {
-  border-radius: 16px;
-  overflow: hidden;
-  background: #161616;
-  border: 1px solid #1e1e1e;
-  cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s ease;
-  position: relative;
-}
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-.project-card img {
-  transition: transform 0.6s cubic-bezier(0.23,1,0.32,1);
-}
-.project-card:hover img {
-  transform: scale(1.04);
+/* ── Card image zoom on hover ───────────────── */
+/* transition is set inline on the img; just define the scaled state */
+*:has(> .card-img):hover .card-img {
+  transform: scale(1.05);
 }
 
-/* Nav link */
+/* ── Nav links ──────────────────────────────── */
 .nav-link {
   font-size: 13px;
   font-weight: 400;
@@ -86,27 +70,26 @@ body {
 }
 .nav-link:hover, .nav-link.active { color: rgba(255,255,255,0.9); }
 
-/* Footer link */
+/* ── Footer links ───────────────────────────── */
 .footer-link {
   font-size: 12px;
   color: rgba(255,255,255,0.35);
   text-decoration: none;
   transition: color 0.2s ease;
-  letter-spacing: 0.01em;
 }
 .footer-link:hover { color: rgba(255,255,255,0.7); }
 
-/* Marquee */
+/* ── Marquee ────────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to   { transform: translateX(-50%); }
 }
 .marquee-track {
   animation: marquee 18s linear infinite;
   white-space: nowrap;
 }
 
-/* Bento grid */
+/* ── Bento (About page) ─────────────────────── */
 .bento-card {
   border-radius: 14px;
   overflow: hidden;
