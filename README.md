@@ -1,4 +1,4 @@
-# William Le Portfolio — Recreated
+# Nihal Machhi
 
 ## Setup
 
@@ -10,15 +10,15 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000)
 
 ## Pages
-- `/` — Work (UX + AR projects bento grid)
+- `/` — Work
 - `/about` — Physics badge + bio + bento cards
-- `/play` — Coming soon (light mode)
+- `/play` — Coming soon (Dark mode)
 
 ## Customize
 - **Your name/info** → `components/PhysicsBadge.tsx` and `components/Footer.tsx`
 - **Projects** → `lib/data.ts`
 - **Bio text** → `app/about/page.tsx`
-- **Logo** → `components/Navbar.tsx` (change `W/`)
+- **Logo** → `components/Navbar.tsx` (change `N/`)
 
 ## Deploy
 ```bash
