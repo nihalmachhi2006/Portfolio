@@ -5,7 +5,8 @@ import dynamic from 'next/dynamic'
 import ProjectCard from '@/components/ProjectCard'
 import Marquee from '@/components/Marquee'
 import { uxProjects, arProjects } from '@/lib/data'
-import HeroSection from '@/components/herosection'
+import HeroSection from '@/components/HeroSection'
+
 
 const PhysicsBadge = dynamic(() => import('@/components/PhysicsBadge'), { ssr: false })
 
