@@ -30,13 +30,11 @@ export default function HeroSection() {
         @keyframes breathe {
           0%,100% { opacity:1; } 50% { opacity:0.3; }
         }
+        .cta-primary:hover { opacity: 0.8; }
+        .cta-secondary:hover { color: #fff !important; border-color: #444 !important; }
+        .tag-pill:hover { border-color: #444 !important; color: #aaa !important; }
       `}</style>
 
-      {/*
-        height = full viewport minus the 72px navbar spacer already in flow.
-        Two equal columns — badge left, text right.
-        overflow:hidden so nothing bleeds outside the fold.
-      */}
       <section style={{
         height: 'calc(100dvh - 72px)',
         background: '#0d0d0d',
@@ -72,64 +70,82 @@ export default function HeroSection() {
               background: '#fff', boxShadow: '0 0 6px #fff',
               animation: 'breathe 2s ease-in-out infinite',
             }} />
-            <span style={{ fontSize: 9, color: '#3a3a3a', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: 11, color: '#888', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
               Available for work
             </span>
           </motion.div>
 
           {/* name */}
           <motion.h1 {...fade(0.25)} style={{
-            fontSize: 'clamp(36px, 4vw, 56px)',
+            fontSize: 'clamp(42px, 5vw, 64px)',
             color: '#fff', fontWeight: 300,
-            lineHeight: 1.06, marginBottom: 10,
+            lineHeight: 1.06, marginBottom: 12,
             letterSpacing: '-0.02em',
           }}>
-            Your<br />
+            Nihal<br />
             <span style={{ fontStyle: 'italic', fontWeight: 300, color: 'rgba(255,255,255,0.45)' }}>
-              Name.
+              Machhi.
             </span>
           </motion.h1>
 
           {/* role */}
           <motion.p {...fade(0.33)} style={{
-            fontSize: 9, color: '#333',
-            letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 32,
+            fontSize: 11, color: '#666',
+            letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 28,
           }}>
             AI · ML · Software Developer
           </motion.p>
 
           {/* bio */}
           <motion.p {...fade(0.40)} style={{
-            fontSize: 14, color: 'rgba(255,255,255,0.4)',
-            lineHeight: 1.8, fontWeight: 300, marginBottom: 36, maxWidth: 380,
+            fontSize: 15, color: 'rgba(255,255,255,0.65)',
+            lineHeight: 1.85, fontWeight: 300, marginBottom: 28, maxWidth: 380,
           }}>
             I build intelligent systems and ship them. From model training to
             production UI — I bridge the gap between research and real products.
           </motion.p>
 
           {/* skills */}
-          <motion.div {...fade(0.47)} style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 36 }}>
-            {['Python', 'PyTorch', 'Next.js', 'LLMs', 'Computer Vision', 'MLOps'].map(s => (
-              <span key={s} style={{
-                fontSize: 9, color: '#444',
+          <motion.div {...fade(0.47)} style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 32 }}>
+            {['LLMs', 'RAG', 'PyTorch', 'LangChain', 'Next.js', 'FastAPI'].map(s => (
+              <span key={s} className="tag-pill" style={{
+                fontSize: 10, color: '#888',
                 letterSpacing: '0.12em', textTransform: 'uppercase',
-                padding: '5px 10px', border: '1px solid #1e1e1e', borderRadius: 4,
+                padding: '6px 12px', border: '1px solid #333', borderRadius: 4,
+                transition: 'color .2s, border-color .2s', cursor: 'default',
               }}>
                 {s}
               </span>
             ))}
           </motion.div>
 
-          {/* stats */}
+          {/* ── featured work strip (replaces number stats) ── */}
           <motion.div {...fade(0.54)} style={{
-            display: 'flex', gap: 32,
-            paddingTop: 24, marginBottom: 30,
-            borderTop: '1px solid rgba(255,255,255,0.05)',
+            paddingTop: 22, marginBottom: 30,
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            display: 'flex', flexDirection: 'column', gap: 11,
           }}>
-            {[['3+', 'Years'], ['20+', 'Projects'], ['10+', 'Models']].map(([n, l]) => (
-              <div key={l}>
-                <div style={{ fontSize: 20, color: '#fff', fontWeight: 300, lineHeight: 1 }}>{n}</div>
-                <div style={{ fontSize: 8, color: '#333', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: 4 }}>{l}</div>
+            {[
+              { name: 'Searchnow',      desc: 'AI search engine · RAG + vector embeddings' },
+              { name: 'BuildModelsnow', desc: 'LLM → auto-generate SQL/NoSQL schemas'       },
+              { name: 'Commitnow',      desc: 'Dev workspace · Kanban, chat & live canvas'  },
+            ].map(({ name, desc }) => (
+              <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                <span style={{
+                  fontSize: 11, color: 'rgba(255,255,255,0.65)',
+                  fontWeight: 400, minWidth: 110, letterSpacing: '0.01em',
+                }}>
+                  {name}
+                </span>
+                <span style={{
+                  width: 24, height: 1, background: 'rgba(255,255,255,0.18)', flexShrink: 0,
+                }} />
+                <span style={{
+                  fontSize: 11, color: 'rgba(255,255,255,0.45)',
+                  fontWeight: 300, letterSpacing: '0.01em',
+                }}>
+                  {desc}
+                </span>
               </div>
             ))}
           </motion.div>
@@ -138,30 +154,28 @@ export default function HeroSection() {
           <motion.div {...fade(0.60)} style={{ display: 'flex', gap: 10 }}>
             <a
               href="#work"
+              className="cta-primary"
               style={{
-                padding: '10px 22px', background: '#fff', color: '#000',
+                padding: '11px 24px', background: '#fff', color: '#000',
                 borderRadius: 4, textDecoration: 'none',
-                fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase',
+                fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontWeight: 500, transition: 'opacity .2s',
               }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')}
-              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
             >
-              View Work
+              View Work →
             </a>
             <a
-              href="mailto:you@email.com"
+              href="mailto:nihalmachhi11@gmail.com"
+              className="cta-secondary"
               style={{
-                padding: '10px 22px', background: 'transparent',
-                color: 'rgba(255,255,255,0.4)', border: '1px solid #1e1e1e',
+                padding: '11px 24px', background: 'transparent',
+                color: 'rgba(255,255,255,0.65)', border: '1px solid #333',
                 borderRadius: 4, textDecoration: 'none',
-                fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase',
+                fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase',
                 transition: 'color .2s, border-color .2s',
               }}
-              onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = '#444' }}
-              onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; e.currentTarget.style.borderColor = '#1e1e1e' }}
             >
-              Say Hello
+              Get in Touch
             </a>
           </motion.div>
         </div>
