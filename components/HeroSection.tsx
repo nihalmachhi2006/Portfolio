@@ -2,15 +2,15 @@
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 
+// Dynamic import keeps Three.js out of the SSR bundle
 const PhysicsBadge = dynamic(() => import('@/components/PhysicsBadge'), {
   ssr: false,
   loading: () => (
     <div style={{
       width: '100%', height: '100%',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      background: 'transparent',
     }}>
-      <span style={{ fontSize: 10, color: '#2a2a2a', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+      <span style={{ fontSize: 9, color: '#222', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
         Loading...
       </span>
     </div>
@@ -20,7 +20,7 @@ const PhysicsBadge = dynamic(() => import('@/components/PhysicsBadge'), {
 const fade = (delay = 0) => ({
   initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as const },
 })
 
 export default function HeroSection() {
@@ -33,8 +33,9 @@ export default function HeroSection() {
       `}</style>
 
       {/*
-        Exactly 100dvh tall (minus the 72px navbar spacer already in flow).
+        height = full viewport minus the 72px navbar spacer already in flow.
         Two equal columns — badge left, text right.
+        overflow:hidden so nothing bleeds outside the fold.
       */}
       <section style={{
         height: 'calc(100dvh - 72px)',
@@ -53,37 +54,18 @@ export default function HeroSection() {
           backgroundSize: '28px 28px',
         }} />
 
-        {/* ── LEFT: physics badge — fills the full left column height ── */}
+        {/* ── LEFT: physics badge ── */}
         <motion.div
           {...fade(0)}
-          style={{
-            height: '100%',
-            position: 'relative',
-            // Slight padding so rope anchor isn't cropped at top
-            paddingTop: 8,
-          }}
+          style={{ height: '100%', position: 'relative' }}
         >
           <PhysicsBadge />
-          <p style={{
-            position: 'absolute',
-            bottom: 14,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            fontSize: 9,
-            color: '#2a2a2a',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            whiteSpace: 'nowrap',
-            pointerEvents: 'none',
-          }}>
-            drag the badge ↑
-          </p>
         </motion.div>
 
         {/* ── RIGHT: hero text ── */}
         <div style={{ padding: '0 56px 0 40px', maxWidth: 500 }}>
 
-          {/* status pill */}
+          {/* status */}
           <motion.div {...fade(0.15)} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 28 }}>
             <div style={{
               width: 6, height: 6, borderRadius: '50%',
@@ -98,10 +80,8 @@ export default function HeroSection() {
           {/* name */}
           <motion.h1 {...fade(0.25)} style={{
             fontSize: 'clamp(36px, 4vw, 56px)',
-            color: '#fff',
-            fontWeight: 300,
-            lineHeight: 1.06,
-            marginBottom: 10,
+            color: '#fff', fontWeight: 300,
+            lineHeight: 1.06, marginBottom: 10,
             letterSpacing: '-0.02em',
           }}>
             Your<br />
@@ -110,7 +90,7 @@ export default function HeroSection() {
             </span>
           </motion.h1>
 
-          {/* role tag */}
+          {/* role */}
           <motion.p {...fade(0.33)} style={{
             fontSize: 9, color: '#333',
             letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 32,
@@ -118,14 +98,10 @@ export default function HeroSection() {
             AI · ML · Software Developer
           </motion.p>
 
-          {/* bio line */}
-          <motion.p {...fade(0.4)} style={{
-            fontSize: 14,
-            color: 'rgba(255,255,255,0.4)',
-            lineHeight: 1.8,
-            fontWeight: 300,
-            marginBottom: 36,
-            maxWidth: 380,
+          {/* bio */}
+          <motion.p {...fade(0.40)} style={{
+            fontSize: 14, color: 'rgba(255,255,255,0.4)',
+            lineHeight: 1.8, fontWeight: 300, marginBottom: 36, maxWidth: 380,
           }}>
             I build intelligent systems and ship them. From model training to
             production UI — I bridge the gap between research and real products.
@@ -137,8 +113,7 @@ export default function HeroSection() {
               <span key={s} style={{
                 fontSize: 9, color: '#444',
                 letterSpacing: '0.12em', textTransform: 'uppercase',
-                padding: '5px 10px',
-                border: '1px solid #1e1e1e', borderRadius: 4,
+                padding: '5px 10px', border: '1px solid #1e1e1e', borderRadius: 4,
               }}>
                 {s}
               </span>
@@ -160,12 +135,11 @@ export default function HeroSection() {
           </motion.div>
 
           {/* CTAs */}
-          <motion.div {...fade(0.6)} style={{ display: 'flex', gap: 10 }}>
+          <motion.div {...fade(0.60)} style={{ display: 'flex', gap: 10 }}>
             <a
               href="#work"
               style={{
-                padding: '10px 22px',
-                background: '#fff', color: '#000',
+                padding: '10px 22px', background: '#fff', color: '#000',
                 borderRadius: 4, textDecoration: 'none',
                 fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontWeight: 500, transition: 'opacity .2s',
@@ -178,10 +152,8 @@ export default function HeroSection() {
             <a
               href="mailto:you@email.com"
               style={{
-                padding: '10px 22px',
-                background: 'transparent',
-                color: 'rgba(255,255,255,0.4)',
-                border: '1px solid #1e1e1e',
+                padding: '10px 22px', background: 'transparent',
+                color: 'rgba(255,255,255,0.4)', border: '1px solid #1e1e1e',
                 borderRadius: 4, textDecoration: 'none',
                 fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase',
                 transition: 'color .2s, border-color .2s',
