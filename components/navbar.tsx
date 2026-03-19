@@ -56,7 +56,7 @@ function BrandLogoMotion() {
 
 export default function Navbar() {
   return (
-    <div className="w-full bg-zinc-50">
+    <div className="w-full bg-zinc-50 sticky top-0 z-50">
       <div className="w-full max-w-[950px] mx-auto border-x border-zinc-200 bg-white text-zinc-500 font-mono text-[13px] leading-relaxed relative z-10">
         <div className="flex items-center justify-end h-[60px] border-b border-zinc-200 px-4 sm:px-6 gap-6 relative">
           <BrandLogoMotion />
