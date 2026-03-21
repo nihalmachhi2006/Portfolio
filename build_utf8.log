@@ -1,0 +1,44 @@
+﻿
+> portfolio@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 5.9s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/5) ...
+node.exe : Error occurred 
+prerendering page "/". Read 
+more: https://nextjs.org/docs/mes
+sages/prerender-error
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo          : No 
+   tSpecified: (Error occurred   
+  ...prerender-error:String) [   
+ ], RemoteException
+    + FullyQualifiedErrorId : Na 
+   tiveCommandError
+ 
+Error: `Tooltip` must be used 
+within `TooltipProvider`
+    at <unknown> (D:\projects\por
+tfolio\.next\server\chunks\ssr\_9
+84323c1._.js:9:34074)
+    at bb (D:\projects\portfolio\
+.next\server\chunks\ssr\_984323c1
+._.js:11:36777) {
+  digest: '282723973'
+}
+Export encountered an error on 
+/page: /, exiting the build.
+Γ¿» Next.js build worker exited 
+with code: 1 and signal: null

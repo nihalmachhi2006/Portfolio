@@ -1,5 +1,6 @@
-import { Slot } from "@radix-ui/react-slot"
+import { Slot } from "radix-ui"
 import React from "react"
+
 import { cn } from "@/lib/utils"
 
 function Panel({ className, ...props }: React.ComponentProps<"section">) {
@@ -7,7 +8,7 @@ function Panel({ className, ...props }: React.ComponentProps<"section">) {
     <section
       data-slot="panel"
       className={cn(
-        "screen-line-top screen-line-bottom relative w-full",
+        "screen-line-top screen-line-bottom border-x border-line",
         className
       )}
       {...props}
@@ -20,7 +21,7 @@ function PanelHeader({ className, ...props }: React.ComponentProps<"header">) {
     <header
       data-slot="panel-header"
       className={cn(
-        "screen-line-bottom px-4",
+        "screen-line-bottom px-4 has-data-[slot=panel-description]:*:data-[slot=panel-title]:screen-line-bottom",
         className
       )}
       {...props}
@@ -33,7 +34,7 @@ function PanelTitle({
   asChild = false,
   ...props
 }: React.ComponentProps<"h2"> & { asChild?: boolean }) {
-  const Comp = asChild ? Slot : "h2"
+  const Comp = asChild ? Slot.Root : "h2"
 
   return (
     <Comp
@@ -44,15 +45,45 @@ function PanelTitle({
   )
 }
 
+function PanelTitleSup({ className, ...props }: React.ComponentProps<"sup">) {
+  return (
+    <sup
+      className={cn(
+        "-top-[0.75em] ml-1 text-sm font-medium tracking-normal text-muted-foreground",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function PanelDescription({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="panel-description"
+      className={cn(
+        "py-4 font-mono text-sm text-balance text-muted-foreground",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
 function PanelContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
-     <div data-slot="panel-body" className={cn("p-4", className)} {...props} />
+    <div data-slot="panel-body" className={cn("p-4", className)} {...props} />
   )
 }
 
 export {
   Panel,
   PanelContent,
+  PanelDescription,
   PanelHeader,
   PanelTitle,
+  PanelTitleSup,
 }

@@ -3,9 +3,12 @@ import { ProfileHeader } from "@/components/portfolio/profile-header";
 import { Overview } from "@/components/portfolio/overview";
 import { SocialLinks } from "@/components/portfolio/social-links";
 import { About } from "@/components/portfolio/about";
-import { GithubContributions } from "@/components/portfolio/github-contributions";
-import { Stack } from "@/components/portfolio/stack";
-import { ComponentsPreview } from "@/components/portfolio/components-preview";
+import { Projects } from "@/components/portfolio/projects";
+import { Experiences } from "@/components/portfolio/experiences";
+import { Blog } from "@/components/portfolio/blog";
+import { Awards } from "@/components/portfolio/awards";
+import { Certifications } from "@/components/portfolio/certifications";
+import { Bookmarks } from "@/components/portfolio/bookmarks";
 
 function Separator() {
   return (
@@ -29,16 +32,24 @@ export default function Home() {
       <About />
       <Separator />
       
-      <GithubContributions />
+      <Projects />
       <Separator />
 
-      <Stack />
+      <Experiences />
       <Separator />
 
-      <ComponentsPreview />
+      <Blog />
       <Separator />
 
-      <div className="flex-1 min-h-[50vh]"></div>
+      <Awards />
+      <Separator />
+
+      <Certifications />
+      <Separator />
+
+      <Bookmarks />
+      <Separator />
     </div>
+
   );
 }

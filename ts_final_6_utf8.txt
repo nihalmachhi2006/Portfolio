@@ -1,0 +1,4 @@
+﻿components/portfolio/awards/award-item.tsx(81,19): error TS2322: Type '{ render: Element; }' is not assignable to type 'IntrinsicAttributes & TooltipTriggerProps & RefAttributes<HTMLButtonElement>'.
+  Property 'render' does not exist on type 'IntrinsicAttributes & TooltipTriggerProps & RefAttributes<HTMLButtonElement>'.
+components/portfolio/projects/project-item.tsx(86,17): error TS2322: Type '{ render: Element; }' is not assignable to type 'IntrinsicAttributes & TooltipTriggerProps & RefAttributes<HTMLButtonElement>'.
+  Property 'render' does not exist on type 'IntrinsicAttributes & TooltipTriggerProps & RefAttributes<HTMLButtonElement>'.

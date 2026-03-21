@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+// import Footer from "@/components/footer";
+import { SiteFooter } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -89,10 +92,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="w-full max-w-3xl mx-auto border-x border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 min-h-[calc(100vh-60px)] transition-colors duration-300">
-            {children}
-          </main>
+          <TooltipProvider>
+            <Navbar />
+            <main className="w-full max-w-3xl mx-auto border-x border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 min-h-[calc(100vh-60px)] transition-colors duration-300">
+              {children}
+            </main>
+            <SiteFooter />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
