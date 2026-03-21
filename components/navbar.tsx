@@ -4,6 +4,7 @@ import { Search, Github, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const calcDistance = (el: HTMLElement) => {
   const rect = el.getBoundingClientRect()
@@ -67,11 +68,11 @@ export default function Navbar() {
         <div className="flex items-center justify-end h-[60px] border-b border-zinc-200 dark:border-zinc-800 px-4 sm:px-6 gap-6 relative transition-colors duration-300">
           <BrandLogoMotion />
           <div className="hidden sm:flex items-center gap-5 mr-2">
-            <a href="#" className="font-sans font-semibold text-zinc-950 dark:text-zinc-50">Home</a>
-            <a href="#" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Components</a>
-            <a href="#" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Blocks</a>
-            <a href="#" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Blog</a>
-            <a href="#" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Sponsors</a>
+            <Link href="/" className="font-sans font-semibold text-zinc-950 dark:text-zinc-50">Home</Link>
+            <Link href="/components" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Components</Link>
+            <Link href="/blocks" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Blocks</Link>
+            <Link href="/blog" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Blog</Link>
+            <Link href="/#hackathons" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Hackathons</Link>
           </div>
 
           <div className="hidden sm:flex items-center gap-8 pl-3 pr-2 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 text-zinc-400 cursor-text hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors lg:ml-6">

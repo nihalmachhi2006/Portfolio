@@ -22,26 +22,26 @@ import { ProseMono } from "@/components/ui/typography"
 import { UTM_PARAMS } from "@/config/site"
 import { addQueryParams } from "@/utils/url"
 
-import type { Project } from "@/types/portfolio/projects"
+import type { Hackathon } from "@/types/portfolio/hackathons"
 
-export function ProjectItem({
+export function HackathonItem({
   className,
-  project,
+  hackathon,
 }: {
   className?: string
-  project: Project
+  hackathon: Hackathon
 }) {
-  const { start, end } = project.period
+  const { start, end } = hackathon.period
   const isOngoing = !end
   const isSinglePeriod = end === start
 
   return (
-    <Collapsible className={className} defaultOpen={project.isExpanded}>
+    <Collapsible className={className} defaultOpen={hackathon.isExpanded}>
       <div className="flex items-center hover:bg-accent-muted">
-        {project.logo ? (
+        {hackathon.logo ? (
           <Image
-            src={project.logo}
-            alt={project.title}
+            src={hackathon.logo}
+            alt={hackathon.title}
             width={32}
             height={32}
             className="mx-4 flex size-6 shrink-0 select-none"
@@ -59,7 +59,7 @@ export function ProjectItem({
             <div className="flex w-full items-center gap-2 p-4 pr-2 text-left cursor-pointer">
               <div className="flex-1">
                 <h3 className="mb-1 leading-snug font-medium text-balance">
-                  {project.title}
+                  {hackathon.title}
                 </h3>
 
                 <dl className="text-sm text-muted-foreground">
@@ -83,23 +83,25 @@ export function ProjectItem({
                 </dl>
               </div>
 
+              {hackathon.link && (
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
                     className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground z-10"
-                    href={addQueryParams(project.link, UTM_PARAMS)}
+                    href={addQueryParams(hackathon.link, UTM_PARAMS)}
                     target="_blank"
                     rel="noopener"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <LinkIcon className="pointer-events-none size-4" />
-                    <span className="sr-only">Open Project Link</span>
+                    <span className="sr-only">Open Hackathon Link</span>
                   </a>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Open Project Link</p>
+                  <p>Open Hackathon Link</p>
                 </TooltipContent>
               </Tooltip>
+              )}
 
               <div className="shrink-0 text-muted-foreground [&_svg]:size-4 relative z-0">
                 <CollapsibleChevronsIcon duration={0.15} />
@@ -111,15 +113,15 @@ export function ProjectItem({
 
       <CollapsibleContent className="overflow-hidden">
         <div className="space-y-4 border-t border-line p-4">
-          {project.description && (
+          {hackathon.description && (
             <ProseMono>
-              <Markdown>{project.description}</Markdown>
+              <Markdown>{hackathon.description}</Markdown>
             </ProseMono>
           )}
 
-          {project.skills.length > 0 && (
+          {hackathon.skills.length > 0 && (
             <ul className="flex flex-wrap gap-1.5">
-              {project.skills.map((skill, index) => (
+              {hackathon.skills.map((skill, index) => (
                 <li key={index} className="flex">
                   <Tag>{skill}</Tag>
                 </li>

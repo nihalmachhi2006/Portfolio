@@ -20,7 +20,6 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
               alt={`${experience.companyName} logo`}
               width={24}
               height={24}
-              quality={100}
               className="rounded-full"
               unoptimized
               aria-hidden
