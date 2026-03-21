@@ -2,6 +2,10 @@ import Banner from "@/components/banner";
 import { ProfileHeader } from "@/components/portfolio/profile-header";
 import { Overview } from "@/components/portfolio/overview";
 import { SocialLinks } from "@/components/portfolio/social-links";
+import { About } from "@/components/portfolio/about";
+import { GithubContributions } from "@/components/portfolio/github-contributions";
+import { Stack } from "@/components/portfolio/stack";
+import { ComponentsPreview } from "@/components/portfolio/components-preview";
 
 function Separator() {
   return (
@@ -17,9 +21,21 @@ export default function Home() {
       <Banner />
       <ProfileHeader />
       <Separator />
-      
+
       <Overview />
       <SocialLinks />
+      <Separator />
+
+      <About />
+      <Separator />
+      
+      <GithubContributions />
+      <Separator />
+
+      <Stack />
+      <Separator />
+
+      <ComponentsPreview />
       <Separator />
 
       <div className="flex-1 min-h-[50vh]"></div>
