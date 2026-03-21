@@ -63,7 +63,7 @@ export default function Navbar() {
 
   return (
     <div className="w-full bg-zinc-50 dark:bg-zinc-950 sticky top-0 z-50 transition-colors duration-300">
-      <div className="w-full max-w-[950px] mx-auto border-x border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-500 font-mono text-[13px] leading-relaxed relative z-10 transition-colors duration-300">
+      <div className="w-full max-w-3xl mx-auto border-x border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-500 font-mono text-[13px] leading-relaxed relative z-10 transition-colors duration-300">
         <div className="flex items-center justify-end h-[60px] border-b border-zinc-200 dark:border-zinc-800 px-4 sm:px-6 gap-6 relative transition-colors duration-300">
           <BrandLogoMotion />
           <div className="hidden sm:flex items-center gap-5 mr-2">

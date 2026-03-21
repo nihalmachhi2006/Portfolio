@@ -90,7 +90,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="w-full max-w-[950px] mx-auto border-x border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 min-h-[calc(100vh-60px)] transition-colors duration-300">
+          <main className="w-full max-w-3xl mx-auto border-x border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 min-h-[calc(100vh-60px)] transition-colors duration-300">
             {children}
           </main>
         </ThemeProvider>
