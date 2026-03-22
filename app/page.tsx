@@ -3,6 +3,7 @@ import { ProfileHeader } from "@/components/portfolio/profile-header";
 import { Overview } from "@/components/portfolio/overview";
 import { SocialLinks } from "@/components/portfolio/social-links";
 import { About } from "@/components/portfolio/about";
+import { Stack } from "@/components/portfolio/stack";
 import { GithubContributions } from "@/components/portfolio/github-contributions";
 import { Hackathons } from "@/components/portfolio/hackathons";
 import { Projects } from "@/components/portfolio/projects";
@@ -33,6 +34,9 @@ export default function Home() {
       <Separator />
 
       <About />
+      <Separator />
+
+      <Stack />
       <Separator />
 
       <GithubContributions />

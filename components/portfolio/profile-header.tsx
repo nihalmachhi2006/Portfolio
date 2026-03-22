@@ -9,7 +9,7 @@ export function ProfileHeader() {
   const [skills, setSkills] = useState<string[]>([]);
   
   useEffect(() => {
-    fetch('/skillsprofile.md').then(res => res.text()).then(text => {
+    fetch('/skillsprofile.md', { cache: 'no-store' }).then(res => res.text()).then(text => {
       const parsed = text.split('\n')
         .map(line => line.trim())
         .filter(line => line.match(/^\d+\./))
@@ -60,7 +60,7 @@ export function ProfileHeader() {
             />
 
             <PronounceMyName
-              namePronunciationUrl="https://assets.chanhdai.com/sounds/pronounce.mp3"
+              namePronunciationUrl="/sounds/pronounce.mp3"
             />
           </div>
 
