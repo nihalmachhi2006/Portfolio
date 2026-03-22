@@ -72,7 +72,7 @@ export default function Navbar() {
             <Link href="/components" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Components</Link>
             <Link href="/blocks" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Blocks</Link>
             <Link href="/blog" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Blog</Link>
-            <Link href="/#hackathons" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Hackathons</Link>
+            <Link href="/hackathons" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Hackathons</Link>
           </div>
 
           <div className="hidden sm:flex items-center gap-8 pl-3 pr-2 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 text-zinc-400 cursor-text hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors lg:ml-6">
