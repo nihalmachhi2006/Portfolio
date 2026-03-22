@@ -42,14 +42,17 @@ export default function Home() {
 
       <GithubContributions />
       <Separator />
-      
-      <Hackathons />
-      <Separator />
 
       <Projects />
       <Separator />
 
       <Experiences />
+      <Separator />
+
+      <Hackathons />
+      <Separator />
+
+      <ComponentsPreview />
       <Separator />
 
       <Blog />
@@ -65,9 +68,6 @@ export default function Home() {
       <Separator />
 
       <RandomQuote />
-      <Separator />
-
-      <ComponentsPreview />
     </div>
 
   );

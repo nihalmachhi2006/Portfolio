@@ -2,11 +2,13 @@
 
 import { TextFlip } from "@/components/ui/text-flip"
 import { PronounceMyName } from "./pronounce-my-name"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react"
 import { VerifiedIcon } from "./verified-icon"
-import { useState, useEffect } from "react";
 
 export function ProfileHeader() {
   const [skills, setSkills] = useState<string[]>([]);
+  const [isHovered, setIsHovered] = useState(false);
   
   useEffect(() => {
     fetch('/skillsprofile.md', { cache: 'no-store' }).then(res => res.text()).then(text => {
@@ -25,13 +27,51 @@ export function ProfileHeader() {
   return (
     <div className="screen-line-bottom flex relative mt-0 w-full dark:bg-transparent">
       <div className="shrink-0 border-r border-line">
-        <div className="mx-0.5 my-0.75 p-1 sm:p-2">
-            <img
-              className="w-[120px] h-[120px] sm:w-40 sm:h-40 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none"
-              alt="Avatar"
-              src="/nm.jpeg"
-              fetchPriority="high"
-            />
+        <div 
+          className="mx-0.5 my-0.75 p-1 sm:p-2 relative cursor-help"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+            <AnimatePresence>
+              {isHovered && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.8, x: '-50%' }}
+                  animate={{ opacity: 1, y: 0, scale: 1, x: '-50%' }}
+                  exit={{ opacity: 0, y: 10, scale: 0.8, x: '-50%' }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="absolute -top-10 left-1/2 z-20 pointer-events-none"
+                >
+                  <div className="bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs sm:text-sm font-semibold px-4 py-2 rounded-2xl whitespace-nowrap shadow-2xl border border-zinc-800 dark:border-zinc-200 relative">
+                    Hi, I'm Nihal! 
+                    <span className="ml-1 text-sm sm:text-base">👋</span>
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-zinc-900 dark:bg-zinc-100 rotate-45 border-r border-b border-zinc-800 dark:border-zinc-200" />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <motion.div
+              className="relative z-10 group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              {/* Profile Image with Ring & Border */}
+              <img
+                className="w-[120px] h-[120px] sm:w-40 sm:h-40 rounded-full border-2 border-white dark:border-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 select-none bg-background shadow-lg relative z-10"
+                alt="Avatar"
+                src="/nm.jpeg"
+                fetchPriority="high"
+              />
+              
+              {/* Online/Live Status Dot */}
+              <div className="absolute bottom-[8%] right-[8%] z-20">
+                <span className="relative flex h-3 w-3 sm:h-4 sm:w-4">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 sm:h-4 sm:w-4 bg-green-500 border-2 border-white dark:border-zinc-900"></span>
+                </span>
+              </div>
+            </motion.div>
         </div>
       </div>
 
