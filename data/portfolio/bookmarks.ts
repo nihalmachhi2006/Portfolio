@@ -2,6 +2,24 @@ import type { Bookmark } from "@/types/portfolio/bookmarks"
 
 export const BOOKMARKS: Bookmark[] = [
   {
+    title: "Spotify Engineering",
+    url: "https://engineering.atspotify.com/",
+    author: "Spotify",
+    bookmarkedAt: "2026-03-22",
+  },
+  {
+    title: "Better Practices",
+    url: "https://medium.com/better-practices",
+    author: "Medium",
+    bookmarkedAt: "2026-03-22",
+  },
+  {
+    title: "Discord Blog",
+    url: "https://discord.com/blog",
+    author: "Discord",
+    bookmarkedAt: "2026-03-22",
+  },
+  {
     title: "Design Engineering at Vercel",
     url: "https://vercel.com/blog/design-engineering-at-vercel",
     author: "Vercel",

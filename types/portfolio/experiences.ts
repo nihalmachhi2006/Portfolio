@@ -36,4 +36,6 @@ export type Experience = {
   positions: ExperiencePosition[]
   /** Marks the company as the current employer for highlighting. */
   isCurrentEmployer?: boolean
+  /** Blurs the company name for privacy. */
+  isBlurred?: boolean
 }

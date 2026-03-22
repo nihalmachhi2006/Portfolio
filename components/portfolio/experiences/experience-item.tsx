@@ -29,8 +29,8 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
           )}
         </div>
 
-        <h3 className="text-lg leading-snug font-semibold">
-          {experience.companyWebsite ? (
+        <h3 className={`text-lg leading-snug font-semibold ${experience.isBlurred ? "blur-[5px] select-none" : ""}`}>
+          {experience.companyWebsite && !experience.isBlurred ? (
             <a
               className="underline-offset-4 hover:underline"
               href={addQueryParams(experience.companyWebsite, UTM_PARAMS)}
@@ -45,11 +45,13 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
         </h3>
 
         {experience.isCurrentEmployer && (
-          <span className="relative flex items-center justify-center">
-            <span className="absolute inline-flex size-3 animate-ping rounded-full bg-info opacity-50" />
-            <span className="relative inline-flex size-2 rounded-full bg-info" />
-            <span className="sr-only">Current Employer</span>
-          </span>
+          <div className="flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-2 py-0.5 text-xs font-medium text-secondary-foreground">
+            <span className="relative flex size-1.5 items-center justify-center">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
+            </span>
+            <span className="leading-none">Working</span>
+          </div>
         )}
       </div>
 
