@@ -6,6 +6,7 @@ import { useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useSound } from "@/hooks/use-sound";
+import { CommandMenu } from "@/components/command-menu";
 
 const calcDistance = (el: HTMLElement) => {
   const rect = el.getBoundingClientRect()
@@ -58,11 +59,21 @@ function BrandLogoMotion() {
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [openCmd, setOpenCmd] = useState(false);
+  const [stars, setStars] = useState<number | null>(null);
   const playSwitchOn = useSound("/sounds/switch-on.mp3");
   const playSwitchOff = useSound("/sounds/switch-off.mp3");
 
   useEffect(() => {
     setMounted(true);
+    fetch("https://api.github.com/repos/nihalmachhi2006/portfolio")
+      .then(res => res.json())
+      .then(data => {
+        if (data && typeof data.stargazers_count === 'number') {
+          setStars(data.stargazers_count);
+        }
+      })
+      .catch(console.error);
   }, []);
 
   return (
@@ -78,7 +89,10 @@ export default function Navbar() {
             <Link href="/hackathons" className="font-sans text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Hackathons</Link>
           </div>
 
-          <div className="hidden sm:flex items-center gap-8 pl-3 pr-2 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 text-zinc-400 cursor-text hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors lg:ml-6">
+          <div 
+            onClick={() => setOpenCmd(true)}
+            className="hidden sm:flex items-center gap-8 pl-3 pr-2 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 text-zinc-400 cursor-text hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors lg:ml-6"
+          >
             <div className="flex items-center gap-2">
               <Search className="w-3.5 h-3.5" />
             </div>
@@ -88,10 +102,17 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors cursor-pointer ml-1">
+          <a 
+            href="https://github.com/nihalmachhi2006/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors cursor-pointer ml-1"
+          >
             <Github className="w-4 h-4 text-zinc-950 dark:text-zinc-50" />
-            <span className="font-sans text-[12px] font-medium">1.5k</span>
-          </div>
+            <span className="font-sans text-[12px] font-medium">
+              {stars !== null ? stars.toLocaleString() : "1.5k"}
+            </span>
+          </a>
 
           <div
             onClick={() => {
@@ -112,6 +133,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+      <CommandMenu open={openCmd} setOpen={setOpenCmd} />
     </div>
   );
 }

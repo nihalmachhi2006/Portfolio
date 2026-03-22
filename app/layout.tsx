@@ -44,14 +44,14 @@ export const metadata: Metadata = {
   creator: "Nihal Machhi",
 
   openGraph: {
-    title: "Nihal Machhi | AI/ML Software Developer",
+    title: "Nihal Machhi - AI/ML Software Developer",
     description:
       "Portfolio of Nihal Machhi - AI/ML Developer showcasing machine learning and full stack projects.",
     url: "https://nihalmachhi.vercel.app",
     siteName: "Nihal Machhi Portfolio",
     images: [
       {
-        url: "/og-image.png", // ✅ keep local
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Nihal Machhi Portfolio",

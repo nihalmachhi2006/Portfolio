@@ -29,7 +29,7 @@ export function ProfileHeader() {
             <img
               className="w-[120px] h-[120px] sm:w-40 sm:h-40 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none"
               alt="Avatar"
-              src="https://avatars.githubusercontent.com/u/183213542?v=4"
+              src="/nm.jpeg"
               fetchPriority="high"
             />
         </div>

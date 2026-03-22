@@ -13,6 +13,7 @@ import { Awards } from "@/components/portfolio/awards";
 import { Certifications } from "@/components/portfolio/certifications";
 import { Bookmarks } from "@/components/portfolio/bookmarks";
 import { RandomQuote } from "@/components/portfolio/random-quote";
+import { ComponentsPreview } from "@/components/portfolio/components-preview";
 
 function Separator() {
   return (
@@ -64,6 +65,9 @@ export default function Home() {
       <Separator />
 
       <RandomQuote />
+      <Separator />
+
+      <ComponentsPreview />
     </div>
 
   );
