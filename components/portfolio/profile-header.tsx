@@ -60,7 +60,7 @@ export function ProfileHeader() {
             />
 
             <PronounceMyName
-              namePronunciationUrl="/sounds/pronounce.mp3"
+              namePronunciationUrl="/sounds/pronounce.wav"
             />
           </div>
 
