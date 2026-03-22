@@ -1,4 +1,4 @@
-1. Full Stack Web3 Developer
+1. Full Stack Web Developer
 2. UI/UX
 3. Open Source Contributor
 4. React & Next.js Developer

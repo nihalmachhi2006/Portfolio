@@ -60,7 +60,7 @@ export function ProfileHeader() {
             />
 
             <PronounceMyName
-              namePronunciationUrl="/sounds/pronounce.wav"
+              namePronunciationUrl="https://assets.chanhdai.com/sounds/pronounce.mp3"
             />
           </div>
 

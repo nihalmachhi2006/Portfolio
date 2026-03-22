@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useSound } from "@/hooks/use-sound";
 
 const calcDistance = (el: HTMLElement) => {
   const rect = el.getBoundingClientRect()
@@ -57,6 +58,8 @@ function BrandLogoMotion() {
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const playSwitchOn = useSound("/sounds/switch-on.mp3");
+  const playSwitchOff = useSound("/sounds/switch-off.mp3");
 
   useEffect(() => {
     setMounted(true);
@@ -95,8 +98,8 @@ export default function Navbar() {
               const newTheme = theme === 'dark' ? 'light' : 'dark';
               setTheme(newTheme);
               try {
-                const audio = new Audio(`/sounds/switch-${newTheme === 'dark' ? 'off' : 'on'}.mp3`);
-                audio.play();
+                if (newTheme === 'dark') playSwitchOff();
+                else playSwitchOn();
               } catch (err) {}
             }}
             className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors cursor-pointer pl-4 border-l border-zinc-200 dark:border-zinc-800 ml-1 h-5 flex items-center"
