@@ -91,7 +91,14 @@ export default function Navbar() {
           </div>
 
           <div
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => {
+              const newTheme = theme === 'dark' ? 'light' : 'dark';
+              setTheme(newTheme);
+              try {
+                const audio = new Audio(`/sounds/switch-${newTheme === 'dark' ? 'off' : 'on'}.mp3`);
+                audio.play();
+              } catch (err) {}
+            }}
             className="text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors cursor-pointer pl-4 border-l border-zinc-200 dark:border-zinc-800 ml-1 h-5 flex items-center"
           >
             {mounted && theme === 'dark' ? (
