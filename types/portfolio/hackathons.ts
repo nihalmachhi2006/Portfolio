@@ -7,4 +7,6 @@ export type Hackathon = {
   description?: string
   logo?: string
   isExpanded?: boolean
+  isBlurred?: boolean
+  status?: { label: string; type: 'success' | 'warning' | 'info' }
 }

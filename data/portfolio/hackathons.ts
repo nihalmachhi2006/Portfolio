@@ -12,4 +12,21 @@ export const HACKATHONS: Hackathon[] = [
     description: "Solution for Kanan Hackathon (C1-P1).",
     isExpanded: true,
   },
+  {
+    id: "odoo-parul-hackathon-26",
+    title: "Odoo x Parul University Hackathon 26",
+    period: {
+      start: "13.06.2026",
+      end: "14.06.2026",
+    },
+    status: {
+      label: "Next Target",
+      type: "info",
+    },
+    isBlurred: false,
+    link: "https://www.odoo.com/event/odoo-x-parul-university-hackathon-26-8012/register",
+    skills: ["Odoo", "Python", "Hackathon"],
+    description: "A 24-hour coding marathon where talent meets technology.",
+    isExpanded: true,
+  },
 ]

@@ -58,9 +58,29 @@ export function HackathonItem({
           <CollapsibleTrigger asChild>
             <div className="flex w-full items-center gap-2 p-4 pr-2 text-left cursor-pointer">
               <div className="flex-1">
-                <h3 className="mb-1 leading-snug font-medium text-balance">
-                  {hackathon.title}
-                </h3>
+                <div className="mb-1 flex items-center gap-2">
+                  <h3 className={`leading-snug font-medium text-balance ${hackathon.isBlurred ? "blur-[5px] select-none" : ""}`}>
+                    {hackathon.title}
+                  </h3>
+
+                  {hackathon.status && (
+                    <div className="flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-2 py-0.5 text-[10px] font-medium text-secondary-foreground shrink-0">
+                      <span className="relative flex size-1.5 items-center justify-center">
+                        <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${
+                          hackathon.status.type === 'success' ? 'bg-emerald-500' : 
+                          hackathon.status.type === 'warning' ? 'bg-amber-500' : 
+                          'bg-sky-500'
+                        }`} />
+                        <span className={`relative inline-flex size-1.5 rounded-full ${
+                          hackathon.status.type === 'success' ? 'bg-emerald-500' : 
+                          hackathon.status.type === 'warning' ? 'bg-amber-500' : 
+                          'bg-sky-500'
+                        }`} />
+                      </span>
+                      <span className="leading-none">{hackathon.status.label}</span>
+                    </div>
+                  )}
+                </div>
 
                 <dl className="text-sm text-muted-foreground">
                   <dt className="sr-only">Period</dt>
