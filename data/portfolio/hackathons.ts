@@ -13,6 +13,22 @@ export const HACKATHONS: Hackathon[] = [
     isExpanded: true,
   },
   {
+    id: "mega-ai-hackathon",
+    title: "Mega AI Hackathon",
+    period: {
+      start: "14.03.2026",
+      end: "26.04.2026",
+    },
+    status: {
+      label: "Next Target",
+      type: "info",
+    },
+    isBlurred: false,
+    link: "https://www.scaler.com/school-of-technology/meta-pytorch-hackathon",
+    skills: ["Reinforcement Learning", "AI Agents", "Open Source Development", "Meta's OpenEnv"],
+    isExpanded: true,
+  },
+  {
     id: "odoo-parul-hackathon-26",
     title: "Odoo x Parul University Hackathon 26",
     period: {
