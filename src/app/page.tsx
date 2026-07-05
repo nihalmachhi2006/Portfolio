@@ -20,7 +20,7 @@ export default function Home() {
   };
 
   return (
-    <main className="mx-auto max-w-[720px] pt-4 ">
+    <main className="mx-auto max-w-180 pt-4 ">
       <section className="flex items-start gap-5 sm:mx-4 ">
         {/* Avatar */}
         <Image
@@ -33,7 +33,7 @@ export default function Home() {
 
         {/* Info */}
         <div className="flex flex-col pt-3">
-          <h1 className="text-4xl font-mono tracking-tight text-zinc-900 font-sans ">
+          <h1 className="text-4xl tracking-tight text-zinc-900 font-sans ">
             Nihal Machhi <span className="font-medium text-xl" >aka @nihalmachhi2006</span>
           </h1>
 

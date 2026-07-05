@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Search, Moon } from "lucide-react";
 
-export default function Navbar() {
+export default function Navbar():any {
   return (
     <header className="w-full py-4 px-8 ">
-      <div className="mx-auto flex max-w-[720px] items-center justify-between">
+      <div className="mx-auto flex max-w-180 items-center justify-between">
         <nav className="flex items-center gap-8 text-sm text-zinc-600">
           <Link href="/" className="transition-colors hover:text-black">
             Home
