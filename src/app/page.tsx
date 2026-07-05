@@ -33,8 +33,8 @@ export default function Home() {
 
         {/* Info */}
         <div className="flex flex-col pt-3">
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-900">
-            Nihal Machhi
+          <h1 className="text-4xl font-mono tracking-tight text-zinc-900 font-sans ">
+            Nihal Machhi <span className="font-medium text-xl" >aka @nihalmachhi2006</span>
           </h1>
 
           {/* Subtitle + Email */}

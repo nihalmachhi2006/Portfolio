@@ -9,17 +9,15 @@ export default function Navbar() {
           <Link href="/" className="transition-colors hover:text-black">
             Home
           </Link>
-
-          <Link href="/work" className="transition-colors hover:text-black">
-            Work
-          </Link>
-
           <Link href="/blog" className="transition-colors hover:text-black">
             Blog
           </Link>
 
           <Link href="/resume" className="transition-colors hover:text-black">
-            Resume
+            Inspiration
+          </Link>
+          <Link href="/resume" className="transition-colors hover:text-black">
+            Play
           </Link>
         </nav>
 
