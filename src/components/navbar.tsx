@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Search, Moon } from "lucide-react";
 
-export default function Navbar():any {
+export default function navabr(): any {
   return (
     <header className="w-full py-4 px-8 ">
       <div className="mx-auto flex max-w-180 items-center justify-between">
